@@ -17,6 +17,15 @@ exports.mockRegister = async (req, res, next) => {
     res.send(resbuilder(globalResponseSet.REGISTER_SUCCESS, mockData));
 }
 
+exports.greeting = async (req, res, next) => {
+    if(req.user){
+        res.send({message: `Hello ${req.user.nickname}. You are able to access data.`});
+    }
+    else {
+        res.send({message: `Invalid Access. Aborted`});
+    }
+}
+
 exports.signIn = async (req, res, next) => {
     passport.authenticate('local', async (err, user, info) => {
         try {

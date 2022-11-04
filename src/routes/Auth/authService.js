@@ -11,7 +11,7 @@ const logger = require('../../../config/logger');
 //token
 exports.generate_token = async (user) =>{
     try {
-        const access_token = jwt.sign({ provider: user.provider, email: user.email }, process.env.JWT_KEY, { expiresIn: '1d' });
+        const access_token = jwt.sign({ provider: user.provider, email: user.email }, process.env.JWT_KEY, { expiresIn: '30s' });
         const refresh_token = jwt.sign({}, process.env.JWT_KEY, { expiresIn: '5d' });
 
         return {access_token, refresh_token};

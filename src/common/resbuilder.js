@@ -13,6 +13,13 @@ const globalResponseSet = {
     REGISTER_FAIL: {code: 2001, message: 'user registeration fail', isSuccess: false},
     LOGIN_SUCCESS: {code: 2010, message: 'login success', isSuccess: true},
     LOGIN_FAIL: {code: 2011, message: 'email or password error', isSuccess: false},
+
+    // MIDDLEWARE/authenticate
+    NOT_AUTHENTICATED: {code: 3000, message: 'not authenticated', isSuccess: false},
+    ACCESS_TOKEN_EXPIRED: {code: 3010, message: 'access token expired', isSuccess: false},
+    ACCESS_TOKEN_INVALID: {code: 3011, message: 'access token invalid', isSuccess: false},
+    REFRESH_TOKEN_EXPIRED: {code: 3020, message: 'refresh token expired', isSuccess: false},
+    REFRESH_TOKEN_INVALID: {code: 3021, message: 'refresh token invalid', isSuccess: false},
 }
 
 const resbuilder = ({code, message, isSuccess}, data) => {
