@@ -19,20 +19,26 @@ exports.mockRegister = async (req, res, next) => {
 
 exports.signIn = async (req, res, next) => {
     passport.authenticate('local', async (err, user, info) => {
-        if (err) {
-            logger.error('signing passport authenticate error', { message: err.stack });
+        try {
+            if (err) {
+                logger.error('signIn passport authenticate error', { message: err.stack });
+                next(globalResponseSet.INTERNAL_SERVER_ERROR);
+                return;
+            }
+            if (!user) {
+                res.send(resbuilder(globalResponseSet.LOGIN_FAIL));
+                return;
+            }
+
+            const { access_token, refresh_token } = await authService.generate_token(user);
+
+            res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { access_token, refresh_token }));
+
+        } catch (e) {
+            logger.error('signIn passport error', { message: e.stack });
             next(globalResponseSet.INTERNAL_SERVER_ERROR);
             return;
         }
-        if (!user) {
-            res.send(resbuilder(globalResponseSet.LOGIN_FAIL));
-            return;
-        }
-
-        //await token_generator(req, res, user);
-
-        res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { message: `hello ${user.nickname}` }));
     })(req, res);
-
     
 }
