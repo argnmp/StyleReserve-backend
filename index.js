@@ -1,10 +1,16 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 //logger
 const logger = require('./config/logger');
 
-require('dotenv').config();
+//response
+const {globalResponseSet, resbuilder} = require('./src/common/resbuilder');
+
+//routes
+const test = require('./src/routes/Test/testRouter');
+
 
 const app = express();
 
@@ -14,19 +20,18 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
+app.use('/test',test);
 
-//404 error handling
+
+//api not found handling
 app.use(function(req, res, next) {
-    const error = {
-        status: 404,
-        data: {},
-        message: 'Page Not Found'
-    }
-    next(error);
+    next(globalResponseSet.API_NOT_FOUND);
 });
 
+//use next for setting http status;
 app.use(function(error, req, res, next) {
-    res.status(error.status).json(error);
+    logger.info(error);
+    res.json(resbuilder(error));
 });
 
 // listen 시작
