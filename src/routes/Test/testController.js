@@ -7,7 +7,7 @@ exports.successTest = async (req, res, next) => {
         data : ['a','b','c'], 
     }
     logger.info("successTest"); 
-    res.json(resbuilder(globalResponseSet.SUCCESS_TEST, mockData));
+    res.send(resbuilder(globalResponseSet.SUCCESS_TEST, mockData));
 }
 exports.errorTest = async (req, res, next) => {
     logger.info("errorTest"); 

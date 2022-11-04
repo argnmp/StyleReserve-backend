@@ -2,6 +2,10 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 require('dotenv').config();
 
+//passport
+const passport = require('passport');
+const {initialize} = require('./src/modules/passport');
+
 //logger
 const logger = require('./config/logger');
 
@@ -10,6 +14,7 @@ const {globalResponseSet, resbuilder} = require('./src/common/resbuilder');
 
 //routes
 const test = require('./src/routes/Test/testRouter');
+const auth = require('./src/routes/Auth/authRouter');
 
 
 const app = express();
@@ -20,18 +25,25 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
+//passport initialize
+app.use(passport.initialize());
+initialize();
+
+
+//------routes------
 app.use('/test',test);
+app.use('/auth',auth);
 
 
 //api not found handling
 app.use(function(req, res, next) {
+    logger.info(`api not found: ${req.url}`);
     next(globalResponseSet.API_NOT_FOUND);
 });
 
 //use next for setting http status;
 app.use(function(error, req, res, next) {
-    logger.info(error);
-    res.json(resbuilder(error));
+    res.send(resbuilder(error));
 });
 
 // listen 시작
