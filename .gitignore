@@ -2,6 +2,7 @@
 /node_modules/
 package-lock.json
 .env
+.vscode/
 
 #sqlite3 test database
-sqlite
+temp
