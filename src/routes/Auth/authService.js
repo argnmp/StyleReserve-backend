@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const logger = require('../../../config/logger');
+const db = require('../../../db/models');
 
 //token
 exports.generate_token = async (user) =>{
@@ -33,6 +34,14 @@ exports.generate_token = async (user) =>{
 
 
 //signup
+exports.createUser = async ({provider, email, nickname, password, salt}) => {
+    try {
+        await db.Users.create({provider, email, nickname, password, salt});    
+    } catch (e){
+        logger.error('createSalt error', {message: e});
+        throw e;
+    }
+}
 exports.createSalt = async () => {
     try {
         let salt = await randomBytesPromisified(64);

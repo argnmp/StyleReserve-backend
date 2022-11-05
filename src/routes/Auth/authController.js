@@ -4,7 +4,7 @@ const authService = require('./authService');
 const {globalResponseSet, resbuilder} = require('../../common/resbuilder');
 const logger = require('../../../config/logger');
 
-exports.mockRegister = async (req, res, next) => {
+exports.mocksignUp = async (req, res, next) => {
     const email = req.body.email;
     const password = req.body.password;
     const nickname = req.body.nickname;
@@ -24,6 +24,29 @@ exports.greeting = async (req, res, next) => {
     else {
         res.send({message: `Invalid Access. Aborted`});
     }
+}
+
+exports.signUp = async (req,res,next) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    const nickname = req.body.nickname;
+    if(!email || !password || !nickname) {
+        res.send(resbuilder(globalResponseSet.REGISTER_FAIL));
+        return;
+    }
+
+    let emailRegex = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+    if (!emailRegex.test(email)) {
+        res.send(resbuilder(globalResponseSet.REGISTER_FAIL));
+        return;
+    }
+
+
+    const salt =  await authService.createSalt();
+    const hashedpw =  await authService.hashPassword(salt, password);
+    await authService.createUser({provider: 'local', email, password: hashedpw, nickname, salt})
+    
+    res.send(resbuilder(globalResponseSet.REGISTER_SUCCESS));
 }
 
 exports.signIn = async (req, res, next) => {

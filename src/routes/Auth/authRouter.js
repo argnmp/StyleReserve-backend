@@ -4,8 +4,9 @@ const authController = require('./authController.js');
 const authenticate = require('../../middleware/authenticate');
 const {wrapAsync} = require('../../common/errorhandler');
 
-router.post('/mockRegister', wrapAsync(authController.mockRegister));
+router.post('/mocksignup', wrapAsync(authController.mocksignUp));
 router.post('/greeting',wrapAsync(authenticate), wrapAsync(authController.greeting));
 router.post('/signin', wrapAsync(authController.signIn));
+router.post('/local/signup', wrapAsync(authController.signUp));
 
 module.exports = router;
