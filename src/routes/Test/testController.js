@@ -1,4 +1,5 @@
 const {globalResponseSet, resbuilder} = require('../../common/resbuilder');
+const db = require('../../../db/models');
 const logger = require('../../../config/logger');
 
 exports.successTest = async (req, res, next) => {
@@ -11,5 +12,10 @@ exports.successTest = async (req, res, next) => {
 }
 exports.errorTest = async (req, res, next) => {
     logger.info("errorTest"); 
-    res.json(resbuilder(globalResponseSet.FAIL_TEST));
+    res.send(resbuilder(globalResponseSet.FAIL_TEST));
+}
+exports.dbTest = async (req, res, next) => {
+    const result = await db.Users.findAll();
+    console.log(result);
+    res.send(resbuilder(globalResponseSet.SUCCESS_TEST));
 }
