@@ -1,6 +1,6 @@
 const passport = require('passport');
 const { Strategy: LocalStrategy } = require('passport-local');
-
+const db = require('../../db/models');
 const logger = require('../../config/logger');
 
 require('dotenv').config();
@@ -13,8 +13,8 @@ const {mockData, mockFindUser} = require('../mockdata/users');
 const localConfig = {usernameField: 'email', passwordField: 'password'};
 const localVerify =  async (email, password, done) => {
     try {
-        const user = mockFindUser(email); 
-        if(!user){
+        const user = await db.Users.findOne({where: {email, provider: 'local'}});
+        if(user===null){
             done(null, false);
             return;
         }

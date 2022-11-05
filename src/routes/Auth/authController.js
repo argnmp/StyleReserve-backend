@@ -19,7 +19,7 @@ exports.mockRegister = async (req, res, next) => {
 
 exports.greeting = async (req, res, next) => {
     if(req.user){
-        res.send({message: `Hello ${req.user.nickname}. You are able to access data.`});
+        res.send({message: `Hello ${req.user.nickname}(id: ${req.user.id}). You are able to access data.`});
     }
     else {
         res.send({message: `Invalid Access. Aborted`});

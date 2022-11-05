@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const {globalResponseSet, resbuilder} = require('../common/resbuilder');
-const {mockData, mockFindUserInfoOnly} = require('../mockdata/users');
+const db = require('../../db/models');
 
 
 const authenticate = async (req, res, next) => {
@@ -23,7 +23,14 @@ const authenticate = async (req, res, next) => {
         return;
     }
 
-    req.user = mockFindUserInfoOnly(decoded.email);
+    const user = await db.Users.findOne({attributes: ['id','provider', 'email', 'nickname'], where: {provider: decoded.provider, email: decoded.email}});
+    console.log(user);
+    req.user = {
+        id: user.id,
+        provider: user.provider,
+        email: user.email,
+        nickname: user.nickname,
+    }
     next();
     return;
 }
