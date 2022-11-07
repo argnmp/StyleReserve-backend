@@ -24,6 +24,16 @@ module.exports = {
       salt: {
         type: Sequelize.STRING
       },
+      styler_id: {
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Stylers',
+          key: 'id',
+        },
+        onDelete: 'set null',
+        onUpdate: 'cascade',
+      }
     });
   },
   async down(queryInterface, Sequelize) {
