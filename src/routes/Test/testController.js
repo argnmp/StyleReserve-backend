@@ -15,7 +15,19 @@ exports.errorTest = async (req, res, next) => {
     res.send(resbuilder(globalResponseSet.FAIL_TEST));
 }
 exports.dbTest = async (req, res, next) => {
-    const result = await db.Users.findAll();
+    /*
+    const result = await db.Users.findOne({
+        where : {
+            id: 1,
+        },
+        include: db.Stylers,
+    });
     console.log(result);
+    */
+    const result = await db.Sreserves.findAll();
+    console.log(result);
+    result.forEach(async element => {
+        console.log(await element.getSrmembers());
+    });
     res.send(resbuilder(globalResponseSet.SUCCESS_TEST));
 }
