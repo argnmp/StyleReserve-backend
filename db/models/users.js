@@ -20,6 +20,9 @@ module.exports = (sequelize, DataTypes) => {
       models.Users.hasMany(models.Srmembers, {
         foreignKey: 'user_id',
       });
+      models.Users.hasMany(models.Creserves, {
+        foreignKey: 'user_id',
+      });
     }
   }
   Users.init({

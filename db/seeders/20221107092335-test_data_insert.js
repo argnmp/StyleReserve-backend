@@ -93,6 +93,116 @@ module.exports = {
       sr_id: 3,
       user_id: 3,
       count:2,
+    }]);
+
+    // add clothes
+    await queryInterface.bulkInsert('Clothes', [{
+      name: '1-옷1',
+      brand_name: '1-옷1브랜드',
+      type: 1,
+      styler_id: 1,
+    }, {
+      name: '1-옷2',
+      brand_name: '1-옷2브랜드',
+      type: 1,
+      styler_id: 1,
+    }, {
+      name: '1-옷3',
+      brand_name: '1-옷3브랜드',
+      type: 2,
+      styler_id: 1,
+    }, {
+      name: '1-옷4',
+      brand_name: '1-옷4브랜드',
+      type: 2,
+      styler_id: 1,
+    }, {
+      name: '1-옷5',
+      brand_name: '1-옷5브랜드',
+      type: 3,
+      styler_id: 1,
+    }, {
+      name: '1-옷6',
+      brand_name: '1-옷6브랜드',
+      type: 3,
+      styler_id: 1,
+    }])
+
+    await queryInterface.bulkInsert('Clothes', [{
+      name: '2-옷1',
+      brand_name: '2-옷1브랜드',
+      type: 1,
+      styler_id: 2,
+    }, {
+      name: '2-옷2',
+      brand_name: '2-옷2브랜드',
+      type: 2,
+      styler_id: 2,
+    }, {
+      name: '2-옷3',
+      brand_name: '2-옷3브랜드',
+      type: 3,
+      styler_id: 2,
+    }, {
+      name: '2-옷4',
+      brand_name: '2-옷4브랜드',
+      type: 1,
+      styler_id: 2,
+    }, {
+      name: '2-옷5',
+      brand_name: '2-옷5브랜드',
+      type: 2,
+      styler_id: 2,
+    }, {
+      name: '2-옷6',
+      brand_name: '2-옷6브랜드',
+      type: 3,
+      styler_id: 2,
+    }]);
+
+    await queryInterface.bulkInsert('Clothes', [{
+      name: '1-옷7',
+      brand_name: '1-옷7브랜드',
+      type: 1,
+      styler_id: 1,
+    }, {
+      name: '1-옷8',
+      brand_name: '1-옷8브랜드',
+      type: 1,
+      styler_id: 1,
+    }, {
+      name: '1-옷9',
+      brand_name: '1-옷9브랜드',
+      type: 2,
+      styler_id: 1,
+    }])
+
+    
+    // creserves insert
+    await queryInterface.bulkInsert('Creserves', [{
+      user_id: 1,
+      styler_id: 1,
+      clothes_id: 13,
+      reservation_date: new Date(2022, 11, 14),
+      description: '11월 14일은 내가 입을거야',
+    }, {
+      user_id: 1,
+      styler_id: 1,
+      clothes_id: 2,
+      reservation_date: new Date(2022, 11, 15), 
+      description: "wish we could turn back time",
+    }, {
+      user_id: 2,
+      styler_id: 1,
+      clothes_id: 14,
+      reservation_date: new Date(2022, 11, 22),
+      description: "to the good old days",
+    }, {
+      user_id: 3,
+      styler_id: 2,
+      clothes_id: 7,
+      reservation_date: new Date(2022, 11, 22),
+      description: "saturday!",
     }])
   },
 

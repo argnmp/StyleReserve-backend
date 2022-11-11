@@ -16,7 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       });
       models.Stylers.hasMany(models.Sreserves, {
         foreignKey: 'styler_id',
-      })
+      });
+      models.Stylers.hasMany(models.Clothes, {
+        foreignKey: 'styler_id',
+      });
+      models.Stylers.hasMany(models.Creserves, {
+        foreignKey: 'styler_id',
+      });
     }
   }
   Stylers.init({
