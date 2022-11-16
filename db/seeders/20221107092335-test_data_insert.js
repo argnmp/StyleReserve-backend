@@ -53,17 +53,17 @@ module.exports = {
     await queryInterface.bulkInsert('Sreserves', [{
       styler_id: 2,
       course_id: 5,
-      start_time: new Date(2022, 11, 11, 14, 0, 0),
+      start_time: new Date(2022, 10, 11, 14, 0, 0),
       owner_id: 3, 
     }, {
       styler_id: 2,
       course_id: 4,
-      start_time: new Date(2022, 11, 11, 19, 0, 0),
+      start_time: new Date(2022, 10, 11, 19, 0, 0),
       owner_id: 3,
     }, {
       styler_id: 1,
       course_id: 3,
-      start_time: new Date(2022, 11, 12, 15, 0, 0),
+      start_time: new Date(2022, 10, 12, 15, 0, 0),
       owner_id: 1,
     }]);
     await queryInterface.bulkInsert('Srmembers', [{
@@ -183,25 +183,25 @@ module.exports = {
       user_id: 1,
       styler_id: 1,
       clothes_id: 13,
-      reservation_date: new Date(2022, 11, 14),
+      reservation_date: new Date(2022, 10, 14),
       description: '11월 14일은 내가 입을거야',
     }, {
       user_id: 1,
       styler_id: 1,
       clothes_id: 2,
-      reservation_date: new Date(2022, 11, 15), 
+      reservation_date: new Date(2022, 10, 15), 
       description: "wish we could turn back time",
     }, {
       user_id: 2,
       styler_id: 1,
       clothes_id: 14,
-      reservation_date: new Date(2022, 11, 22),
+      reservation_date: new Date(2022, 10, 22),
       description: "to the good old days",
     }, {
       user_id: 3,
       styler_id: 2,
       clothes_id: 7,
-      reservation_date: new Date(2022, 11, 22),
+      reservation_date: new Date(2022, 10, 22),
       description: "saturday!",
     }])
   },
