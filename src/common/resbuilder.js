@@ -1,8 +1,10 @@
 const globalResponseSet = {
     // COMMON
-    INTERNAL_SERVER_ERROR: {code: 1, message: 'internal server error', isSuccess: false},
+    API_SUCCESS: {code: 1, message: 'api call success', isSuccess: true},
+
     // INDEX
-    API_NOT_FOUND: {code: 100, message: 'target api not found', isSuccess: false},
+    INTERNAL_SERVER_ERROR: {code: 100, message: 'internal server error', isSuccess: false},
+    API_NOT_FOUND: {code: 101, message: 'target api not found', isSuccess: false},
 
     // TEST
     SUCCESS_TEST: {code: 1000, message: 'response from successTest', isSuccess: true},
@@ -20,6 +22,10 @@ const globalResponseSet = {
     ACCESS_TOKEN_INVALID: {code: 3011, message: 'access token invalid', isSuccess: false},
     REFRESH_TOKEN_EXPIRED: {code: 3020, message: 'refresh token expired', isSuccess: false},
     REFRESH_TOKEN_INVALID: {code: 3021, message: 'refresh token invalid', isSuccess: false},
+
+    // Sreserve
+    PARAMETER_ERROR: {code: 4000, message: 'parameter error', isSuccess: false},
+    
 }
 
 const resbuilder = ({code, message, isSuccess}, data) => {
