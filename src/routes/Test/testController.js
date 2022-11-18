@@ -5,12 +5,13 @@ const db = require('../../../db/models');
 const logger = require('../../../config/logger');
 
 exports.successTest = async (req, res, next) => {
-    const mockData = {
-        currentTime: new Date(), 
-        data : ['a','b','c'], 
-    }
+    const result = await db.Users.findOne({
+        where : {
+            email: 'kimtahen@hanyang.ac.kr',
+        }
+    });
     logger.info("successTest"); 
-    res.send(resbuilder(globalResponseSet.SUCCESS_TEST, mockData));
+    res.send(resbuilder(globalResponseSet.SUCCESS_TEST, result));
 }
 exports.errorTest = async (req, res, next) => {
     logger.info("errorTest"); 

@@ -6,5 +6,6 @@ const {wrapAsync} = require('../../common/errorhandler');
 
 router.post('/getOverallReserves',wrapAsync(authenticate), wrapAsync(srController.getOverallReserves));
 router.post('/getDateReserves', wrapAsync(authenticate), wrapAsync(srController.getDateReserves))
+router.post('/addReserve', wrapAsync(authenticate), wrapAsync(srController.addReserve))
 
 module.exports = router;

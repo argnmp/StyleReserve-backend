@@ -1,4 +1,4 @@
-const {Op} = require('sequelize');
+const {Op, ValidationErrorItemOrigin} = require('sequelize');
 
 const logger = require('../../../config/logger');
 const db = require('../../../db/models');
@@ -21,12 +21,16 @@ exports.monthSearch = async (user, year, month) => {
                     [Op.between] : [new Date(year, month -1, 1), new Date(year,month, 0)],
                 },
                 styler_id: user.styler_id,
-            }
+            },
+            order: [
+                ['start_time','asc']
+            ]
         });
         const result = data.map(elem=>elem.start_time);
         return result;
     }
     catch (e) {
+        logger.error('monthSearch error', {message: e});
         throw e;
     }
 }
@@ -80,6 +84,88 @@ exports.dateSearch = async (user, year, month, date) => {
         return result;
 
     } catch (e) {
+        logger.error('dateSearch error', {message: e});
         throw e;
+    }
+}
+exports.getDuration = async (course_id) => {
+    try {
+        const result = await db.Courses.findOne({
+            where: {
+                id: course_id,
+            }
+        });
+        return result.duration;
+
+    } catch (e) {
+        logger.error('getDuration error', {message: e});
+        throw e;
+
+    }
+}
+exports.checkReservation = async (user, start_time, course_id) => {
+    try {
+        const year = start_time.getFullYear();
+        const month = start_time.getMonth();
+        const date = start_time.getDate();
+
+        const duration = await this.getDuration(course_id);
+        const end_time = new Date(start_time);
+        end_time.setMinutes(end_time.getMinutes() + duration);
+        const data = await db.Sreserves.findAll({
+            where: {
+                start_time: {
+                    [Op.between]: [new Date(year, month, date, 0, 0, 0), new Date(year, month, date + 1, 0, 0, 0)],
+                },
+                styler_id: user.styler_id,
+            },
+            include: [db.Courses]
+        });
+        console.log(start_time, end_time);
+        for (let item of data) {
+            const from = item.start_time;
+            const to = new Date(from);
+            to.setMinutes(to.getMinutes() + item.Course.duration);
+            console.log(from, to);
+            if (!((end_time <= from) || (start_time >= to))) {
+                return false;
+            }
+        }
+        return true;
+
+    } catch (e) {
+        logger.error('checkReservation error', {message: e});
+        throw e;
+
+    }
+}
+exports.createSrmember = async (user, sr_id, count) => {
+    try {
+        await db.Srmembers.create({
+            sr_id,
+            user_id: user.id,
+            count,
+        })
+    } catch (e) {
+        logger.error('createReservation error', {message: e});
+        throw e;
+
+    }
+
+}
+exports.createSreserve = async (user, start_time, course_id, count) => {
+    try {
+        const sreserve = await db.Sreserves.create({
+            start_time,
+            owner_id: user.id,
+            course_id,
+            styler_id: user.styler_id,
+        });
+        await this.createSrmember(user, sreserve.id, count)
+        
+    } catch (e) {
+        logger.error('createReservation error', {message: e});
+        throw e;
+
     }
 }

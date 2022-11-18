@@ -25,6 +25,8 @@ const globalResponseSet = {
 
     // Sreserve
     PARAMETER_ERROR: {code: 4000, message: 'parameter error', isSuccess: false},
+    SRESERVE_OVERLAP: {code: 4001, message: 'reservation exists', isSuccess: false},
+    SRESERVE_FAIL: {code: 4002, message: 'reservation failed', isSuccess: false},
     
 }
 
