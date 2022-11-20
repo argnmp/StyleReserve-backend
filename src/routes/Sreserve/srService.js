@@ -147,7 +147,7 @@ exports.createSrmember = async (user, sr_id, count) => {
             count,
         })
     } catch (e) {
-        logger.error('createReservation error', {message: e});
+        logger.error('createSrmember error', {message: e});
         throw e;
 
     }
@@ -164,7 +164,83 @@ exports.createSreserve = async (user, start_time, course_id, count) => {
         await this.createSrmember(user, sreserve.id, count)
         
     } catch (e) {
-        logger.error('createReservation error', {message: e});
+        logger.error('createSreserve error', {message: e});
+        throw e;
+
+    }
+}
+exports.srValidate = async (user, sr_id) => {
+    try {    
+        const sreserve = await db.Sreserves.findOne({
+            where: {
+                id: sr_id,
+                styler_id: user.styler_id,
+            }
+        });
+        if(sreserve == null || sreserve == undefined){
+            return false;
+        }
+        return true;
+         
+    } catch (e) {
+        logger.error('srValidate error', {message: e});
+        throw e;
+
+    }
+    
+}
+exports.memberValidate = async (user, sr_id, count) => {
+    try {
+        const sreserve = await db.Sreserves.findOne({
+            where: {
+                id: sr_id,
+            },
+            include: [{
+                model: db.Srmembers,
+            }],
+        });
+        if(sreserve == null || sreserve == undefined){
+            return false;
+        }
+        let counter = 0;
+        if(sreserve.owner_id == user.id){
+            return false;
+        }
+        for(let mem of sreserve.Srmembers){
+            if(mem.user_id == user.id){
+                return false;
+            }
+            counter += mem.count;
+        }
+        if(counter + count > 5){
+            return false;
+        }
+        return true;
+    } catch (e) {
+        logger.error('memberValidate error', {message: e});
+        throw e;
+
+    }
+}
+exports.deleteSreserve = async (user, sr_id) => {
+    try {    
+        const sreserve = await db.Sreserves.findOne({
+            where: {
+                id: sr_id,
+            }
+        });
+        if(sreserve.owner_id != user.id){
+            return false;
+        }
+        await db.Sreserves.destroy({
+            where: {
+                id: sr_id
+            }
+        })
+        return true;
+         
+    } catch (e) {
+        logger.error('deleteSreserve error', {message: e});
         throw e;
 
     }

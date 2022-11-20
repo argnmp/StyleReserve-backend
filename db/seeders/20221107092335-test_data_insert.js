@@ -71,7 +71,7 @@ module.exports = {
       start_time: new Date(2022, 10, 13, 16, 0, 0),
       owner_id: 2,
     }, {
-      styler_id: 2,
+      styler_id: 1,
       course_id: 3,
       start_time: new Date(2022, 10, 24, 20, 0, 0),
       owner_id: 2,
@@ -91,7 +91,7 @@ module.exports = {
     }, {
       sr_id: 4,
       user_id: 2,
-      count: 5,
+      count: 4,
     }, {
       sr_id: 5,
       user_id: 2,
@@ -100,17 +100,13 @@ module.exports = {
 
     // adding to existing reservation
     await queryInterface.bulkInsert('Srmembers', [{
-      sr_id: 2,
+      sr_id: 4,
       user_id: 1,
       count: 1,
     },{
       sr_id: 3,
       user_id: 2,
       count: 1,
-    },{
-      sr_id: 3,
-      user_id: 3,
-      count:2,
     }]);
 
     // add clothes

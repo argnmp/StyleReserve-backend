@@ -5,7 +5,10 @@ const authenticate = require('../../middleware/authenticate');
 const {wrapAsync} = require('../../common/errorhandler');
 
 router.post('/getOverallReserves',wrapAsync(authenticate), wrapAsync(srController.getOverallReserves));
-router.post('/getDateReserves', wrapAsync(authenticate), wrapAsync(srController.getDateReserves))
-router.post('/addReserve', wrapAsync(authenticate), wrapAsync(srController.addReserve))
+router.post('/getDateReserves', wrapAsync(authenticate), wrapAsync(srController.getDateReserves));
+router.post('/addReserve', wrapAsync(authenticate), wrapAsync(srController.addReserve));
+router.post('/addMember', wrapAsync(authenticate), wrapAsync(srController.addMember));
+router.post('/deleteReserve', wrapAsync(authenticate), wrapAsync(srController.deleteReserve));
+
 
 module.exports = router;
