@@ -9,7 +9,12 @@ module.exports = {
     }, {
       serial_num: 987654,
       auth_key: 'styler2',
-
+    }, {
+      serial_num: 111111,
+      auth_key: 'styler3', 
+    }, {
+      serial_num: 999999,
+      auth_key: 'styler4',
     }]);
     await queryInterface.bulkInsert('Courses', [{
       duration: 30,

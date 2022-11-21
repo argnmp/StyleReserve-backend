@@ -44,7 +44,8 @@ exports.signUp = async (req,res,next) => {
 
     const salt =  await authService.createSalt();
     const hashedpw =  await authService.hashPassword(salt, password);
-    await authService.createUser({provider: 'local', email, password: hashedpw, nickname, salt})
+    //temporarily set styler_id to 3
+    await authService.createUser({provider: 'local', email, password: hashedpw, nickname, salt, styler_id: 3})
     
     res.send(resbuilder(globalResponseSet.REGISTER_SUCCESS));
 }
