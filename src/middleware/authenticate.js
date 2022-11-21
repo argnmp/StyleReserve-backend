@@ -23,10 +23,14 @@ const authenticate = async (req, res, next) => {
         return;
     }
 
-    const user = await db.Users.findOne({attributes: ['id','provider', 'email', 'nickname'], where: {provider: decoded.provider, email: decoded.email}});
-    console.log(user);
+    const user = await db.Users.findOne({
+        attributes: ['id', 'provider', 'email', 'nickname'], 
+        where: { provider: decoded.provider, email: decoded.email },
+        include: db.Stylers,
+    });
     req.user = {
         id: user.id,
+        styler_id: user.Styler.id,
         provider: user.provider,
         email: user.email,
         nickname: user.nickname,

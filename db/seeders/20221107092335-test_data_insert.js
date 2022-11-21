@@ -42,9 +42,9 @@ module.exports = {
     },{
       provider: 'kakao',
       email: 'kimtahen@hanyang.ac.kr',
-      password: "E5IIdh4OhQClTKDvGXrtWLWJhM9QTBRbYA2wAuTARGAPJ9a1GfJMinFH3Bf248P2bZ2/AQ8YVC3nUs0rgpUPMQ==",
+      password: "MI57nUwizPrcAVEWCkK3vNeAmKpbfx0NDkcKhC2GKmUGBeXUr53cKsXLkjPhedjD2jgsc2HmX/1f0gFpJAaOLw==",
       //password: twentyonepilots
-      salt: "w4ipBwqGSCJQy9tRyA8h59ToUEWgkM3Kt1HA6MWuakG2DrvIwolR3TmwLJe9lJhyeuEkp+rd/8V4Dfwdepitlw==",
+      salt: "41mA6jDJfeXyDRCYptkpsvYpeCq+MpMOtBs5Dx+fscxbNsbjVsHLcEz3hXzxmy0BmRpP8oS7Z1puk6KgrNI80g==",
       nickname: "tyler", 
       styler_id: 2,
     }]);
@@ -53,18 +53,28 @@ module.exports = {
     await queryInterface.bulkInsert('Sreserves', [{
       styler_id: 2,
       course_id: 5,
-      start_time: new Date(2022, 11, 11, 14, 0, 0),
+      start_time: new Date(2022, 10, 11, 14, 0, 0),
       owner_id: 3, 
     }, {
       styler_id: 2,
       course_id: 4,
-      start_time: new Date(2022, 11, 11, 19, 0, 0),
+      start_time: new Date(2022, 10, 11, 19, 0, 0),
       owner_id: 3,
     }, {
       styler_id: 1,
       course_id: 3,
-      start_time: new Date(2022, 11, 12, 15, 0, 0),
+      start_time: new Date(2022, 10, 12, 15, 0, 0),
       owner_id: 1,
+    }, {
+      styler_id: 1,
+      course_id: 1,
+      start_time: new Date(2022, 10, 13, 16, 0, 0),
+      owner_id: 2,
+    }, {
+      styler_id: 1,
+      course_id: 3,
+      start_time: new Date(2022, 10, 24, 20, 0, 0),
+      owner_id: 2,
     }]);
     await queryInterface.bulkInsert('Srmembers', [{
       sr_id: 1,
@@ -78,21 +88,25 @@ module.exports = {
       sr_id: 3,
       user_id: 1,
       count: 1,
+    }, {
+      sr_id: 4,
+      user_id: 2,
+      count: 4,
+    }, {
+      sr_id: 5,
+      user_id: 2,
+      count: 1,
     }]);
 
     // adding to existing reservation
     await queryInterface.bulkInsert('Srmembers', [{
-      sr_id: 2,
+      sr_id: 4,
       user_id: 1,
       count: 1,
     },{
       sr_id: 3,
       user_id: 2,
       count: 1,
-    },{
-      sr_id: 3,
-      user_id: 3,
-      count:2,
     }]);
 
     // add clothes
@@ -183,25 +197,25 @@ module.exports = {
       user_id: 1,
       styler_id: 1,
       clothes_id: 13,
-      reservation_date: new Date(2022, 11, 14),
+      reservation_date: new Date(2022, 10, 14),
       description: '11월 14일은 내가 입을거야',
     }, {
       user_id: 1,
       styler_id: 1,
       clothes_id: 2,
-      reservation_date: new Date(2022, 11, 15), 
+      reservation_date: new Date(2022, 10, 15), 
       description: "wish we could turn back time",
     }, {
       user_id: 2,
       styler_id: 1,
       clothes_id: 14,
-      reservation_date: new Date(2022, 11, 22),
+      reservation_date: new Date(2022, 10, 22),
       description: "to the good old days",
     }, {
       user_id: 3,
       styler_id: 2,
       clothes_id: 7,
-      reservation_date: new Date(2022, 11, 22),
+      reservation_date: new Date(2022, 10, 22),
       description: "saturday!",
     }])
   },

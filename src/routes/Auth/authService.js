@@ -12,7 +12,7 @@ const db = require('../../../db/models');
 //token
 exports.generate_token = async (user) =>{
     try {
-        const access_token = jwt.sign({ provider: user.provider, email: user.email }, process.env.JWT_KEY, { expiresIn: '30s' });
+        const access_token = jwt.sign({ provider: user.provider, email: user.email }, process.env.JWT_KEY, { expiresIn: '1d' });
         const refresh_token = jwt.sign({}, process.env.JWT_KEY, { expiresIn: '5d' });
 
         return {access_token, refresh_token};
@@ -28,6 +28,7 @@ exports.generate_token = async (user) =>{
 
     } 
     catch (e) {
+        logger.error('generate_token error', {message: e});
         throw e;
     }
 }
@@ -38,7 +39,7 @@ exports.createUser = async ({provider, email, nickname, password, salt}) => {
     try {
         await db.Users.create({provider, email, nickname, password, salt});    
     } catch (e){
-        logger.error('createSalt error', {message: e});
+        logger.error('createUser error', {message: e});
         throw e;
     }
 }
