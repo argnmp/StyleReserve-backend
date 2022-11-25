@@ -65,7 +65,12 @@ exports.signIn = async (req, res, next) => {
 
             const { access_token, refresh_token } = await authService.generate_token(user);
 
-            res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { access_token, refresh_token }));
+            res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { 
+                access_token, 
+                refresh_token, 
+                email: user.email,
+                nickname: user.nickname,
+             }));
 
         } catch (e) {
             logger.error('signIn passport error', { message: e.stack });

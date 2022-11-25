@@ -9,6 +9,7 @@ router.post('/getDateReserves', wrapAsync(authenticate), wrapAsync(srController.
 router.post('/addReserve', wrapAsync(authenticate), wrapAsync(srController.addReserve));
 router.post('/addMember', wrapAsync(authenticate), wrapAsync(srController.addMember));
 router.post('/deleteReserve', wrapAsync(authenticate), wrapAsync(srController.deleteReserve));
+router.post('/deleteMember', wrapAsync(authenticate), wrapAsync(srController.deleteMember));
 
 
 module.exports = router;
