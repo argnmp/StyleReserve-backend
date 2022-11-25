@@ -232,6 +232,8 @@ POST /cr/addCloth
     clothName: black,
     brand: Mod9,
     type:1,
+    Utype:1,
+    URL:https://image.msscdn.net/images/goods_img/20210903/2107115/2107115_1_220.jpg
 }
 ```
 - response
@@ -245,8 +247,10 @@ POST /cr/addCloth
         "id": 16,
         "styler_id": 1,
         "name": "black",
-        "brand_name": "Mod9",
-        "type": "1"
+        "brand_name": "mod9",
+        "type": "1",
+        "url_type": "1",
+        "url": "https://image.msscdn.net/images/goods_img/20210903/2107115/2107115_1_220.jpg"
     }
 },
 ```
