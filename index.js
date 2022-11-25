@@ -18,7 +18,6 @@ const auth = require('./src/routes/Auth/authRouter');
 const creserve = require('./src/routes/Creserve/crController');
 const sreserve = require('./src/routes/Sreserve/srRouter');
 
-
 const app = express();
 
 app.set('view engine', 'ejs')
