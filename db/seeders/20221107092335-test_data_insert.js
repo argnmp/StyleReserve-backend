@@ -9,7 +9,12 @@ module.exports = {
     }, {
       serial_num: 987654,
       auth_key: 'styler2',
-
+    }, {
+      serial_num: 111111,
+      auth_key: 'styler3', 
+    }, {
+      serial_num: 999999,
+      auth_key: 'styler4',
     }]);
     await queryInterface.bulkInsert('Courses', [{
       duration: 30,
@@ -115,31 +120,43 @@ module.exports = {
       brand_name: '1-옷1브랜드',
       type: 1,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷2',
       brand_name: '1-옷2브랜드',
       type: 1,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷3',
       brand_name: '1-옷3브랜드',
       type: 2,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷4',
       brand_name: '1-옷4브랜드',
       type: 2,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷5',
       brand_name: '1-옷5브랜드',
       type: 3,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷6',
       brand_name: '1-옷6브랜드',
       type: 3,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }])
 
     await queryInterface.bulkInsert('Clothes', [{
@@ -147,31 +164,43 @@ module.exports = {
       brand_name: '2-옷1브랜드',
       type: 1,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '2-옷2',
       brand_name: '2-옷2브랜드',
       type: 2,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '2-옷3',
       brand_name: '2-옷3브랜드',
       type: 3,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '2-옷4',
       brand_name: '2-옷4브랜드',
       type: 1,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '2-옷5',
       brand_name: '2-옷5브랜드',
       type: 2,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '2-옷6',
       brand_name: '2-옷6브랜드',
       type: 3,
       styler_id: 2,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }]);
 
     await queryInterface.bulkInsert('Clothes', [{
@@ -179,16 +208,22 @@ module.exports = {
       brand_name: '1-옷7브랜드',
       type: 1,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷8',
       brand_name: '1-옷8브랜드',
       type: 1,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
       name: '1-옷9',
       brand_name: '1-옷9브랜드',
       type: 2,
       styler_id: 1,
+      url_type: true,
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }])
 
     
@@ -227,5 +262,12 @@ module.exports = {
      * Example:
      * await queryInterface.bulkDelete('People', null, {});
      */
+    await queryInterface.bulkDelete('Creserves', null, {});
+    await queryInterface.bulkDelete('Clothes', null, {});
+    await queryInterface.bulkDelete('Srmembers', null, {});
+    await queryInterface.bulkDelete('Sreserves', null, {});
+    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('Courses', null, {});
+    await queryInterface.bulkDelete('Stylers', null, {});
   }
 };

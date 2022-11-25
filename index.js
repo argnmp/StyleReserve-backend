@@ -15,8 +15,9 @@ const {globalResponseSet, resbuilder} = require('./src/common/resbuilder');
 //routes
 const test = require('./src/routes/Test/testRouter');
 const auth = require('./src/routes/Auth/authRouter');
-const creserve = require('./src/routes/Creserve/crController');
 const sreserve = require('./src/routes/Sreserve/srRouter');
+const creserve = require('./src/routes/Creserve/crController');
+
 
 const app = express();
 

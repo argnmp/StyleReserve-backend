@@ -17,7 +17,7 @@ exports.checkReservation = async (Clo_id,year=new Date().getFullYear(),month=new
             ]
 
         }); 
-       
+       // console.log(data);
         return data;
     } catch (e) {
         logger.error('checkReservation error', {message: e});
@@ -60,13 +60,15 @@ exports.createCreserve = async (user,text,date,clothid) => {  //이건 그냥 �
 }
 
 //옷장에 옷 추가 메소드
-exports.createCloth = async(stylerid,productN,brandN,Clothtype)=>{
+exports.createCloth = async(stylerid,productN,brandN,Clothtype,Utype,URL)=>{
     try {
         const Cloth = await db.Clothes.create({
             styler_id: stylerid,
             name: productN,
             brand_name: brandN,
             type : Clothtype,
+            url_type: Utype,
+            url:URL
         });
         console.log(Cloth);
         return Cloth;

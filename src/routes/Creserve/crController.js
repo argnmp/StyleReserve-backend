@@ -7,7 +7,7 @@ const authenticate = require('../../middleware/authenticate');
 const {wrapAsync} = require('../../common/errorhandler');
 const router = express.Router() 
 
-router.post('/searchMusinsa',wrapAsync(authenticate), wrapAsync(crSearch.searchMusinsa));
+router.post('/searchMusinsa',wrapAsync(authenticate), wrapAsync(crSearch.searchMusinsa)); //무신사 서치 라우터
 
 router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //모든 옷 정보주기
   try {
@@ -18,7 +18,7 @@ router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //�
     });
     console.log(clothes);
     res.send(resbuilder(globalResponseSet.API_SUCCESS, clothes));
-    return;
+    
   } catch (err) {
     console.error(err);
     next(err);
@@ -28,7 +28,6 @@ router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //�
 router.post('/checkReserve',wrapAsync(authenticate), async (req, res, next) => { //해당 월에 이 옷을 얼마나 예약했는지
   result = await crService.checkReservation(req.body.cloth_id,req.body.year,req.body.month);
   res.send(resbuilder(globalResponseSet.API_SUCCESS, result));
-  return;
   
  });
 
@@ -37,24 +36,22 @@ router.post('/checkDuplicate',wrapAsync(authenticate),async(req,res,next)=>{ // 
   res.send(So);
 });
 
-router.post('/addCreserve', wrapAsync(authenticate), async (req, res, next) => { //옷 일정 추가요청
-  if (await crService.checkDuplicate(req.body.cloth_id, req.body.year, req.body.month, req.body.date)) {
+router.post('/addCreserve',wrapAsync(authenticate),async (req, res, next) => { //옷 일정 추가요청
+  if (await crService.checkDuplicate(req.body.cloth_id,req.body.year,req.body.month,req.body.date)){
     res.send(resbuilder(globalResponseSet.CREATE_CRESERVE_OVERLAP)); //true면 옷 추가 못함
     return;
   }
-  else {
-    var mergedDate = new Date(req.body.year, Number(req.body.month) - 1, Number(req.body.date) + 1, 0, 0);
-    await crService.createCreserve(req.user, req.body.description, mergedDate, req.body.cloth_id); //해당 유저의 데이터 추가 요청
-    res.send(resbuilder(globalResponseSet.API_SUCCESS));
-    return;
+  else{
+  var mergedDate= new Date(req.body.year,Number(req.body.month)-1,Number(req.body.date)+1,0,0);
+  await crService.createCreserve(req.user,req.body.description,mergedDate,req.body.cloth_id); //해당 유저의 데이터 추가 요청
+  res.send(resbuilder(globalResponseSet.API_SUCCESS));
   }
-
+  
 });
 
 router.post('/addCloth',wrapAsync(authenticate),async (req, res, next)=>{
-  created_cloth=await crService.createCloth(req.user.styler_id,req.body.clothName,req.body.brand,req.body.type);
+  created_cloth=await crService.createCloth(req.user.styler_id,req.body.clothName,req.body.brand,req.body.type,req.body.Utype,req.body.URL);
   res.send(resbuilder(globalResponseSet.API_SUCCESS,created_cloth));
-  return;
 });
 
   

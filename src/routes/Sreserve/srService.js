@@ -61,6 +61,7 @@ exports.dateSearch = async (user, year, month, date) => {
             const srms = sr.Srmembers.map(srm => {
                 total_count += srm.count;
                 return {
+                    
                     user_id: srm.user_id,
                     nickname: srm.User.nickname,
                     count: srm.count,

@@ -23,6 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     brand_name: DataTypes.STRING,
     type: DataTypes.INTEGER,
+    url_type: DataTypes.BOOLEAN, 
+    url: DataTypes.STRING,
   }, {
     sequelize,
     timestamps: false,

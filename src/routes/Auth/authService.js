@@ -35,9 +35,9 @@ exports.generate_token = async (user) =>{
 
 
 //signup
-exports.createUser = async ({provider, email, nickname, password, salt}) => {
+exports.createUser = async ({provider, email, nickname, password, salt, styler_id}) => {
     try {
-        await db.Users.create({provider, email, nickname, password, salt});    
+        await db.Users.create({provider, email, nickname, password, salt, styler_id});    
     } catch (e){
         logger.error('createUser error', {message: e});
         throw e;

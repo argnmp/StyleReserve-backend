@@ -34,6 +34,7 @@ const globalResponseSet = {
     //Creserve
     CREATE_CRESERVE_OVERLAP: {code: 5000, message: 'reservation exists', isSuccess: false},
     PRODUCT_DOESNT_EXIST: {code: 5001, message: 'system failed to find the product', isSuccess: false},
+
 }
 
 const resbuilder = ({code, message, isSuccess}, data) => {
