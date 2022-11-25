@@ -220,8 +220,8 @@ POST /sr/deleteReserve
 ```
 2. 실패: globalResponseSet 참조
 
-###Creserve
-####옷 데이터 추가
+### Creserve
+#### 옷 데이터 추가
 ```httpspec
 POST /cr/addCloth
 ```
@@ -252,7 +252,8 @@ POST /cr/addCloth
 ```
 2. 실패 : globalResponseSet 참조
 
-####옷 일정 추가 요청
+
+#### 옷 일정추가 요청
 ```httpspec
 POST /cr/addCreserve
 ```
@@ -277,7 +278,7 @@ POST /cr/addCreserve
 ```
 2. 실패 : globalResponseSet 참조
 
-####해당 스타일러에 등록된 모든 옷 조회
+#### 해당 스타일러에 등록된 모든 옷 조회
 ```httpspec
 POST /cr/clothes
 ```
@@ -320,7 +321,7 @@ POST /cr/clothes
 ```
 2. 실패 : globalResponseSet 참조
 
-####특정한 옷의 한 달 간 예약된 내역 모두 조회
+#### 특정한 옷의 한 달 간 예약된 내역 모두 조회
 ```httpspec
 POST /cr/checkReserve
 ```
@@ -360,7 +361,7 @@ POST /cr/checkReserve
 ```
 2. 실패 : globalResponseSet 참조
 
-####무신사 상품 검색
+#### 무신사 상품 검색
 ```httpspec
 POST /cr/searchMusinsa
 ```
