@@ -13,7 +13,9 @@ const {mockData, mockFindUser} = require('../mockdata/users');
 const localConfig = {usernameField: 'email', passwordField: 'password'};
 const localVerify =  async (email, password, done) => {
     try {
-        const user = await db.Users.findOne({where: {email, provider: 'local'}});
+        //const user = await db.Users.findOne({where: {email, provider: 'local'}});
+        //allow local and kakao temporarily
+        const user = await db.Users.findOne({ where: { email } })
         if(user===null){
             done(null, false);
             return;
