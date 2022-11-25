@@ -17,7 +17,7 @@ exports.checkReservation = async (Clo_id,year=new Date().getFullYear(),month=new
             ]
 
         }); 
-       // console.log(data);
+       
         return data;
     } catch (e) {
         logger.error('checkReservation error', {message: e});
