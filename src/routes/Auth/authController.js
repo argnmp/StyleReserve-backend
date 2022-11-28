@@ -44,7 +44,8 @@ exports.signUp = async (req,res,next) => {
 
     const salt =  await authService.createSalt();
     const hashedpw =  await authService.hashPassword(salt, password);
-    await authService.createUser({provider: 'local', email, password: hashedpw, nickname, salt})
+    //temporarily set styler_id to 3
+    await authService.createUser({provider: 'local', email, password: hashedpw, nickname, salt, styler_id: 3})
     
     res.send(resbuilder(globalResponseSet.REGISTER_SUCCESS));
 }
@@ -64,7 +65,12 @@ exports.signIn = async (req, res, next) => {
 
             const { access_token, refresh_token } = await authService.generate_token(user);
 
-            res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { access_token, refresh_token }));
+            res.send(resbuilder(globalResponseSet.LOGIN_SUCCESS, { 
+                access_token, 
+                refresh_token, 
+                email: user.email,
+                nickname: user.nickname,
+             }));
 
         } catch (e) {
             logger.error('signIn passport error', { message: e.stack });

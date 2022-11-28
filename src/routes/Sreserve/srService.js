@@ -44,6 +44,9 @@ exports.dateSearch = async (user, year, month, date) => {
                 },
                 styler_id: user.styler_id,
             },
+            order: [
+                ['start_time','asc']
+            ],
             include: [{
                 model: db.Srmembers,
                 include: [{
@@ -61,6 +64,7 @@ exports.dateSearch = async (user, year, month, date) => {
             const srms = sr.Srmembers.map(srm => {
                 total_count += srm.count;
                 return {
+                    
                     user_id: srm.user_id,
                     nickname: srm.User.nickname,
                     count: srm.count,

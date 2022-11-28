@@ -81,6 +81,16 @@ POST /auth/signin
 }
 ```
 
+- response
+```javascript
+{
+    access_token: "jwt token",
+    refresh_token: "jwt token",
+    email: "test@naver.com",
+    nickname: "testaccount"
+}
+```
+
 ### Sreserve
 #### user가 연결된 styler의 특정 달의 예약 일자 요청
 ```httpspec

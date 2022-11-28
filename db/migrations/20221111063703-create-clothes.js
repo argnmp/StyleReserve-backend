@@ -31,7 +31,14 @@ module.exports = {
         allowNull: true,
         type: Sequelize.INTEGER, 
       },
-      
+      url_type: {
+        allowNull: true, 
+        type: Sequelize.BOOLEAN,
+      },
+      url: {
+        allowNull: true, 
+        type: Sequelize.STRING,
+      },
     });
   },
   async down(queryInterface, Sequelize) {

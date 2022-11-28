@@ -82,3 +82,7 @@ exports.deleteReserve = async (req, res, next) => {
     }
     res.send(resbuilder(globalResponseSet.API_SUCCESS));
 }
+
+exports.deleteMember = async (req, res, next) => {
+    
+}
