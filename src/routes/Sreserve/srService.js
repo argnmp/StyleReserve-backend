@@ -44,6 +44,9 @@ exports.dateSearch = async (user, year, month, date) => {
                 },
                 styler_id: user.styler_id,
             },
+            order: [
+                ['start_time','asc']
+            ],
             include: [{
                 model: db.Srmembers,
                 include: [{

@@ -58,27 +58,27 @@ module.exports = {
     await queryInterface.bulkInsert('Sreserves', [{
       styler_id: 2,
       course_id: 5,
-      start_time: new Date(2022, 10, 11, 14, 0, 0),
+      start_time: new Date(2022, 10, 11, 5, 0, 0),
       owner_id: 3, 
     }, {
       styler_id: 2,
       course_id: 4,
-      start_time: new Date(2022, 10, 11, 19, 0, 0),
+      start_time: new Date(2022, 10, 11, 10, 0, 0),
       owner_id: 3,
     }, {
       styler_id: 1,
       course_id: 3,
-      start_time: new Date(2022, 10, 12, 15, 0, 0),
+      start_time: new Date(2022, 10, 12, 6, 0, 0),
       owner_id: 1,
     }, {
       styler_id: 1,
       course_id: 1,
-      start_time: new Date(2022, 10, 13, 16, 0, 0),
+      start_time: new Date(2022, 10, 13, 7, 0, 0),
       owner_id: 2,
     }, {
       styler_id: 1,
       course_id: 3,
-      start_time: new Date(2022, 10, 24, 20, 0, 0),
+      start_time: new Date(2022, 10, 24, 11, 0, 0),
       owner_id: 2,
     }]);
     await queryInterface.bulkInsert('Srmembers', [{
