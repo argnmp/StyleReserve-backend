@@ -15,10 +15,11 @@ exports.paramValidate = (list) => {
 
 exports.monthSearch = async (user, year, month) => {
     try {
+        console.log(new Date(year, month-1, 0), new Date(year, month, 0));
         const data = await db.Sreserves.findAll({
             where: {
                 start_time: {
-                    [Op.between] : [new Date(year, month -1, 1), new Date(year,month, 0)],
+                    [Op.between] : [new Date(year, month -1, 0), new Date(year,month, 0)],
                 },
                 styler_id: user.styler_id,
             },
@@ -245,6 +246,47 @@ exports.deleteSreserve = async (user, sr_id) => {
          
     } catch (e) {
         logger.error('deleteSreserve error', {message: e});
+        throw e;
+
+    }
+}
+
+exports.recentReservation = async (user) => {
+    try {    
+        const target = await db.Sreserves.findOne({
+            where: {
+                start_time: {
+                    [Op.gte]: new Date(),
+                },
+                styler_id: user.styler_id,
+            },
+            order: [
+                ['start_time','asc']
+            ],
+            include: [{
+                model: db.Users,
+                attributes: ['id', 'nickname'],
+            }, db.Courses, {
+                model: db.Srmembers,
+                where: {
+                    user_id: user.id,
+                }
+            }],
+
+        });
+        
+        const res = target == undefined ? {} : {
+            start_time: target.start_time,
+            course: {
+                course_id: target.course_id,
+                duration: target.Course.duration,
+            }
+        }
+        
+        return {isSuccess: !(target == undefined), data: res };
+         
+    } catch (e) {
+        logger.error('recentReservation error', {message: e});
         throw e;
 
     }
