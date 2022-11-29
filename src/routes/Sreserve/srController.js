@@ -86,3 +86,16 @@ exports.deleteReserve = async (req, res, next) => {
 exports.deleteMember = async (req, res, next) => {
     
 }
+
+
+exports.getRecentReserve = async (req, res, next) => {
+    const result = await srService.recentReservation(req.user);
+    
+    if(result.isSuccess){
+        res.send(resbuilder(globalResponseSet.API_SUCCESS, result.data));
+        return;
+    }
+    else {
+        res.send(resbuilder(globalResponseSet.RECENT_SRESERVE_NOT_EXIST));
+    }
+}

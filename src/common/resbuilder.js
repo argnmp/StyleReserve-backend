@@ -30,6 +30,7 @@ const globalResponseSet = {
     CREATE_SRMEMBER_VALIDATION_FAIL: {code: 4011, message: 'count exceeded or user is already on the reservation', isSuccess: false},
     CREATE_SRESERVE_FAIL: {code: 4012, message: 'create reservation failed', isSuccess: false},
     DELETE_SRESERVE_NOT_OWNER: {code: 4020, message: 'user is not sreserve owner', isSuccess: false},
+    RECENT_SRESERVE_NOT_EXIST: {code: 4030, message: 'recent sreserve not exists', isSuccess: false},
     
     //Creserve
     CREATE_CRESERVE_OVERLAP: {code: 5000, message: 'reservation exists', isSuccess: false},
