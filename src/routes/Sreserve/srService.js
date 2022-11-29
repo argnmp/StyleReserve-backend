@@ -41,7 +41,7 @@ exports.dateSearch = async (user, year, month, date) => {
         const data = await db.Sreserves.findAll({
             where: {
                 start_time: {
-                    [Op.between] : [new Date(year, month -1, date, 0, 0, 0), new Date(year,month-1, date+1, 0, 0, 0)],
+                    [Op.between] : [new Date(year, month -1, date-1, 15, 0, 0), new Date(year,month-1, date, 15, 0, 0)],
                 },
                 styler_id: user.styler_id,
             },
