@@ -116,114 +116,114 @@ module.exports = {
 
     // add clothes
     await queryInterface.bulkInsert('Clothes', [{
-      name: '1-옷1',
-      brand_name: '1-옷1브랜드',
+      name: 'NJ1DN75A 남성 1996 에코 눕시 자켓',
+      brand_name: 'THE NORTH FACE',
       type: 1,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20220412/2482269/2482269_1_500.jpg?t=20220412151526'
     }, {
-      name: '1-옷2',
-      brand_name: '1-옷2브랜드',
+      name: '레스터G RDS 구스다운 남성 롱패딩 (L/BLACK)',
+      brand_name: 'DISCOVERY EXPEDITION',
       type: 1,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/prd_img/20220830/2755391/detail_2755391_10_500.jpg?t=20220830164439'
     }, {
-      name: '1-옷3',
-      brand_name: '1-옷3브랜드',
+      name: '레체 투톤 덕 다운 패딩 글리터 그린 브라운',
+      brand_name: 'SATUR',
       type: 2,
       styler_id: 1,
       url_type: true,
       url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
     }, {
-      name: '1-옷4',
-      brand_name: '1-옷4브랜드',
+      name: '솔리드 무톤 자켓',
+      brand_name: 'DOFFJASON',
       type: 2,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20161123/452483/452483_2_500.jpg?t=20201102154631'
     }, {
-      name: '1-옷5',
-      brand_name: '1-옷5브랜드',
+      name: '2 TONE ARCH HOODIE GRAY',
+      brand_name: 'YALE',
       type: 3,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20220125/2326935/2326935_11_500.jpg?t=20220819135542'
     }, {
-      name: '1-옷6',
-      brand_name: '1-옷6브랜드',
+      name: '램스울 크루넥 오버니트(블랙)',
+      brand_name: 'TAKEASY',
       type: 3,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20191017/1191407/1191407_2_500.jpg?t=20220628155444'
     }])
 
     await queryInterface.bulkInsert('Clothes', [{
-      name: '2-옷1',
-      brand_name: '2-옷1브랜드',
+      name: '해비 코튼 썸홀 후디',
+      brand_name: 'INTEMPOMOOD',
       type: 1,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20220121/2319988/2319988_25_500.jpg?t=20221201091605'
     }, {
-      name: '2-옷2',
-      brand_name: '2-옷2브랜드',
+      name: '프렌치 스트라이프 셔츠-네이비',
+      brand_name: 'TOMASMORE',
       type: 2,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20220113/2305840/2305840_2_500.jpg?t=20220215132819'
     }, {
-      name: '2-옷3',
-      brand_name: '2-옷3브랜드',
+      name: '리벳 아플리케 포켓 로고 후드 바닐라크림',
+      brand_name: 'SATUR',
       type: 3,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20221017/2870841/2870841_1_500.jpg?t=20221020234255'
     }, {
-      name: '2-옷4',
-      brand_name: '2-옷4브랜드',
+      name: '테이퍼드 히든 밴딩 크롭 슬랙스',
+      brand_name: 'MUSINSA STANDARD',
       type: 1,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/prd_img/20190910/1149328/detail_1149328_19_500.jpg?t=20210705095346'
     }, {
-      name: '2-옷5',
-      brand_name: '2-옷5브랜드',
+      name: '이지 와이드 데님 팬츠 그레이',
+      brand_name: 'GLW',
       type: 2,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20210826/2092852/2092852_4_500.jpg?t=20221012160640'
     }, {
-      name: '2-옷6',
-      brand_name: '2-옷6브랜드',
+      name: 'Punching Knit Dress BLACK',
+      brand_name: 'AVANDRESS',
       type: 3,
       styler_id: 2,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/prd_img/20220812/2714524/detail_2714524_1_500.jpg?t=20220822183900'
     }]);
 
     await queryInterface.bulkInsert('Clothes', [{
-      name: '1-옷7',
-      brand_name: '1-옷7브랜드',
+      name: '코드 후드 집업 자켓 스모크 그레이',
+      brand_name: 'PARTIMENTO',
       type: 1,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20200123/1280576/1280576_2_500.jpg?t=20200130113408'
     }, {
-      name: '1-옷8',
-      brand_name: '1-옷8브랜드',
+      name: '와이드 스웨트 팬츠 그린',
+      brand_name: 'PARTIMENTO',
       type: 1,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20220302/2392873/2392873_1_500.jpg?t=20220307150819'
     }, {
-      name: '1-옷9',
-      brand_name: '1-옷9브랜드',
+      name: '1967 JET BLACK JEANS',
+      brand_name: 'BRANDED',
       type: 2,
       styler_id: 1,
       url_type: true,
-      url: 'https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640'
+      url: 'https://image.msscdn.net/images/goods_img/20200818/1552753/1552753_1_500.jpg?t=20220628154114'
     }])
 
     
