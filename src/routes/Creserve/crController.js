@@ -25,8 +25,20 @@ router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //�
   }
 });
 
+router.post('/previousReserve',wrapAsync(authenticate),async (req, res, next) => {  //모든 옷 정보주기
+  result = await crService.previousReserve(req.user.id);
+  res.send(resbuilder(globalResponseSet.API_SUCCESS, result));
+});
+
+
 router.post('/checkReserve',wrapAsync(authenticate), async (req, res, next) => { //해당 월에 이 옷을 얼마나 예약했는지
   result = await crService.checkReservation(req.body.cloth_id,req.body.year,req.body.month);
+  res.send(resbuilder(globalResponseSet.API_SUCCESS, result));
+  
+ });
+
+ router.post('/checkUserReserve',wrapAsync(authenticate), async (req, res, next) => { //해당 유저의 옷 예약 기록(특정달)
+  result = await crService.checkUserReservation(req.user.id,req.body.year,req.body.month);
   res.send(resbuilder(globalResponseSet.API_SUCCESS, result));
   
  });
@@ -42,8 +54,10 @@ router.post('/addCreserve',wrapAsync(authenticate),async (req, res, next) => { /
     return;
   }
   else{
-  var mergedDate= new Date(req.body.year,Number(req.body.month)-1,Number(req.body.date)+1,0,0);
-  await crService.createCreserve(req.user,req.body.description,mergedDate,req.body.cloth_id); //해당 유저의 데이터 추가 요청
+  //var mergedDate= new Date(Number(req.body.year),Number(req.body.month)-1,Number(req.body.date)+1,0,0,0);
+  var utc = new Date(Date.UTC(Number(req.body.year),Number(req.body.month)-1,Number(req.body.date),0,0,0));
+  //console.log(utc);
+  await crService.createCreserve(req.user,req.body.description,utc,req.body.cloth_id); //해당 유저의 데이터 추가 요청
   res.send(resbuilder(globalResponseSet.API_SUCCESS));
   }
   
