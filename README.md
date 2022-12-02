@@ -361,6 +361,9 @@ POST /cr/checkReserve
             "clothes_id": 12,
             "user_id": 1,
             "Clothe": {
+                "name": "2-옷6",
+                "brand_name": "2-옷6브랜드",
+                "type": 3,
                 "url_type": true,
                 "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
             }
@@ -371,6 +374,9 @@ POST /cr/checkReserve
             "clothes_id": 13,
             "user_id": 1,
             "Clothe": {
+                "name": "1-옷7",
+                "brand_name": "1-옷7브랜드",
+                "type": 1,
                 "url_type": true,
                 "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
             }
