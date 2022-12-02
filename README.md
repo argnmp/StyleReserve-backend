@@ -356,20 +356,26 @@ POST /cr/checkReserve
     "isSuccess": true,
     "data": [
         {
-            "description": "one more thing",
-            "reservation_date": "2022-11-02T15:00:00.000Z",
-            "user_id": 1
-        },
-        {
             "description": "to wear at a party",
-            "reservation_date": "2022-11-04T15:00:00.000Z",
-            "user_id": 1
+            "reservation_date": "2022-11-04T00:00:00.000Z",
+            "clothes_id": 12,
+            "user_id": 1,
+            "Clothe": {
+                "url_type": true,
+                "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
+            }
         },
         {
-            "description": "how does it look like ?",
-            "reservation_date": "2022-11-24T15:00:00.000Z",
-            "user_id": 1
+            "description": "11월 14일은 내가 입을거야",
+            "reservation_date": "2022-11-13T00:00:00.000Z",
+            "clothes_id": 13,
+            "user_id": 1,
+            "Clothe": {
+                "url_type": true,
+                "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
+            }
         }
+        //(이하 데이터 생략)
     ]
 }
 ```
