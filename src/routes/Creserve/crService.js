@@ -19,7 +19,7 @@ exports.checkUserReservation = async (User_id,year=new Date().getFullYear(),mont
             include:[{
                 model: db.Clothes,
                 //as: 'Clothes',
-                attributes: ['url_type','url'],
+                attributes: ['name','brand_name','type','url_type','url'],
             }]
         }); 
         //console.log(data);
