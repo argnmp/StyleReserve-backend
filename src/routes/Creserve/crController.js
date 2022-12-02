@@ -25,10 +25,11 @@ router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //�
   }
 });
 
-router.post('/previousReserve',wrapAsync(authenticate),async (req, res, next) => {  //모든 옷 정보주기
-  result = await crService.previousReserve(req.user.id);
+
+router.post('/nearReserve',wrapAsync(authenticate),async (req, res, next) => {  
+  result = await crService.nearReserve(req.user.id);
   res.send(resbuilder(globalResponseSet.API_SUCCESS, result));
-});
+}); //가까운 미래의 일정을 하나 알려줌
 
 
 router.post('/checkReserve',wrapAsync(authenticate), async (req, res, next) => { //해당 월에 이 옷을 얼마나 예약했는지
