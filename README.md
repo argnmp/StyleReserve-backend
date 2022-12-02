@@ -401,22 +401,30 @@ POST /cr/checkUserReserve
     "isSuccess": true,
     "data": [
         {
-            "description": "to wear at a party",
-            "reservation_date": "2022-11-04T00:00:00.000Z",
+            "description": "can i do it?",
+            "reservation_date": "2022-12-05T00:00:00.000Z",
             "clothes_id": 12,
-            "user_id": 1
+            "user_id": 1,
+            "Clothe": {
+                "name": "2-옷6",
+                "brand_name": "2-옷6브랜드",
+                "type": 3,
+                "url_type": true,
+                "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
+            }
         },
         {
-            "description": "11월 14일은 내가 입을거야",
-            "reservation_date": "2022-11-13T00:00:00.000Z",
-            "clothes_id": 13,
-            "user_id": 1
-        },
-        {
-            "description": "wish we could turn back time",
-            "reservation_date": "2022-11-14T00:00:00.000Z",
-            "clothes_id": 2,
-            "user_id": 1
+            "description": "very great",
+            "reservation_date": "2022-12-06T00:00:00.000Z",
+            "clothes_id": 12,
+            "user_id": 1,
+            "Clothe": {
+                "name": "2-옷6",
+                "brand_name": "2-옷6브랜드",
+                "type": 3,
+                "url_type": true,
+                "url": "https://image.msscdn.net/images/goods_img/20221017/2870818/2870818_1_500.jpg?t=20221020233640"
+            }
         }
     ]
 }
