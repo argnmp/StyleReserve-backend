@@ -15,8 +15,12 @@ exports.checkUserReservation = async (User_id,year=new Date().getFullYear(),mont
             },
             order: [
                 ['reservation_date','asc']
-            ]
-
+            ],
+            include:[{
+                model: db.Clothes,
+                //as: 'Clothes',
+                attributes: ['url_type','url'],
+            }]
         }); 
         //console.log(data);
         return data;
