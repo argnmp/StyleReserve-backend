@@ -275,7 +275,7 @@ POST /cr/addCreserve
 ```javascript
 {
     access_token: "jwt return from signin api",
-    cloth_id: 12,
+    cloth_id:12,
     year:2022,
     month:11,
     date:4,
@@ -343,7 +343,7 @@ POST /cr/checkReserve
 ```javascript
 {
     access_token: "jwt return from signin api",
-    cloth_id: 12,
+    cloth_id:12,
     year:2022,
     month:11,
 }
@@ -371,6 +371,74 @@ POST /cr/checkReserve
             "user_id": 1
         }
     ]
+}
+```
+2. 실패 : globalResponseSet 참조
+
+#### 특정한 달의 해당 유저의 옷 예약 정보 모두 조회
+```httpspec
+POST /cr/checkUserReserve
+```
+- request
+```javascript
+{
+    access_token: "jwt return from signin api",
+    year:2022
+    month:11
+}
+```
+1. 성공
+```javascript
+{
+    "code": 1,
+    "message": "api call success",
+    "isSuccess": true,
+    "data": [
+        {
+            "description": "to wear at a party",
+            "reservation_date": "2022-11-04T00:00:00.000Z",
+            "clothes_id": 12,
+            "user_id": 1
+        },
+        {
+            "description": "11월 14일은 내가 입을거야",
+            "reservation_date": "2022-11-13T00:00:00.000Z",
+            "clothes_id": 13,
+            "user_id": 1
+        },
+        {
+            "description": "wish we could turn back time",
+            "reservation_date": "2022-11-14T00:00:00.000Z",
+            "clothes_id": 2,
+            "user_id": 1
+        }
+    ]
+}
+```
+2. 실패 : globalResponseSet 참조
+
+#### 해당 유저의 가장 최근 옷 예약 조회
+```httpspec
+POST /cr/previousReserve
+```
+- request
+```javascript
+{
+    access_token: "jwt return from signin api",
+}
+```
+1. 성공
+```javascript
+{
+    "code": 1,
+    "message": "api call success",
+    "isSuccess": true,
+    "data": {
+        "description": "very great",
+        "reservation_date": "2022-12-06T00:00:00.000Z",
+        "clothes_id": 12,
+        "user_id": 1
+    }
 }
 ```
 2. 실패 : globalResponseSet 참조
