@@ -1,11 +1,19 @@
 const puppeteer = require("puppeteer");
-const {globalResponseSet, resbuilder} = require('../../common/resbuilder');
+const { globalResponseSet, resbuilder } = require('../../common/resbuilder');
 
-exports.searchMusinsa = async (req,res,next) => {
+exports.searchMusinsa = async (req, res, next) => {
     try {
         const browser = await puppeteer.launch({ headless: false });
         const page = await browser.newPage();
-        await page.goto("https://www.musinsa.com/search/musinsa/goods?q=" + req.body.keyword);
+        await page.setViewport({    // Viewport 설정 가로의 경우 일반적으로 최대 1920, 새로의 경우 예상되는 최대 px를 지정해주면됨
+            width: 1920,
+            height: 6000
+        });
+        await page.goto("https://www.musinsa.com/search/musinsa/goods?q=" + req.body.keyword, {
+            waitUntil: 'networkidle2'
+        });
+        //await page.waitForSelector("body > div > div > div > div > a.modal__btn.modal__btn--secondary");
+        //await page.click("body > div > div > div > div > a.modal__btn.modal__btn--secondary");
         let eh = await page.$("div.list-box");
         let title, brand, imgURL;
         do {
@@ -32,5 +40,5 @@ exports.searchMusinsa = async (req,res,next) => {
         console.log('MusinsaSearch error' + err);
         res.send(resbuilder(globalResponseSet.PRODUCT_DOESNT_EXIST));
         return;
-     }
+    }
 }
