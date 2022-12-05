@@ -3,7 +3,7 @@ const { globalResponseSet, resbuilder } = require('../../common/resbuilder');
 
 exports.searchMusinsa = async (req, res, next) => {
     try {
-        const browser = await puppeteer.launch({ headless: false });
+        const browser = await puppeteer.launch({ headless: true });
         const page = await browser.newPage();
         await page.setViewport({    // Viewport 설정 가로의 경우 일반적으로 최대 1920, 새로의 경우 예상되는 최대 px를 지정해주면됨
             width: 1920,
