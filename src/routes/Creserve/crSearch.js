@@ -12,8 +12,7 @@ exports.searchMusinsa = async (req, res, next) => {
         await page.goto("https://www.musinsa.com/search/musinsa/goods?q=" + req.body.keyword, {
             waitUntil: 'networkidle2'
         });
-        //await page.waitForSelector("body > div > div > div > div > a.modal__btn.modal__btn--secondary");
-        //await page.click("body > div > div > div > div > a.modal__btn.modal__btn--secondary");
+        await page.click("body > div > div > div > div > a.modal__btn.modal__btn--secondary");
         let eh = await page.$("div.list-box");
         let title, brand, imgURL;
         do {
