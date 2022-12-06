@@ -1,6 +1,8 @@
 const {Op, ValidationErrorItemOrigin} = require('sequelize');
 const logger = require('../../../config/logger');
 const db = require('../../../db/models');
+const moment = require("moment");
+moment().format("YYYY-MM-DD");
 
 
 //디폴트로 현재 달을 받음
@@ -32,23 +34,26 @@ exports.checkUserReservation = async (User_id,year=new Date().getFullYear(),mont
     
 }
 
-exports.previousReserve = async (User_id) => {  //해당 유저의 가장 최근 옷예약만 반환
+exports.nearReserve = async (User_id) => {  //해당 유저의 가장 최근 옷예약만 반환
     try {
-        const data = await db.Creserves.findAll({ //일단 모든 정보를 다 가져와야함
+        const data = await db.Creserves.findOne({ //일단 모든 정보를 다 가져와야함
             attributes: ['description','reservation_date','clothes_id','user_id'],
-            where: { user_id: User_id,
+            where: { 
+                user_id: User_id,
+                reservation_date:{
+                    [Op.gte]: moment().toDate(),
+                },
             },
             order: [
                 ['reservation_date','asc']
             ]
 
         }); 
-        console.log(data[data.length - 1]);
+        console.log(data);
 
-        const last_data = data[data.length - 1] //시간 상 마지막 예약만 반환함
-        return last_data;
+        return data;
     } catch (e) {
-        logger.error('checkUserReservation error', {message: e});
+        logger.error('nearReserve error', {message: e});
         throw e;
     }
   }
