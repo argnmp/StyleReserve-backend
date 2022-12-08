@@ -230,6 +230,82 @@ POST /sr/deleteReserve
 ```
 2. 실패: globalResponseSet 참조
 
+### Op
+#### 무신사 검색
+10개의 무신사 검색 결과를 제공합니다.
+```httpspec
+POST /op/vendorSearch
+```
+- request
+```javascript
+{
+    access_token: "jwt return from signin api",
+    keyword: "노스페이스",
+}
+```
+- response
+1. 성공
+```javascript
+{
+    "code": 1,
+    "message": "api call success",
+    "isSuccess": true,
+    "data": [
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ1DN75A 남성 1996 에코 눕시 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20220412/2482269/2482269_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ1DN75B 남성 1996 에코 눕시 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20210823/2081549/2081549_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NC2DN72A 챌린지 에어 다운 코트",
+            "img_url": "//image.msscdn.net/images/goods_img/20220816/2718029/2718029_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ1DN84A 로프티 다운 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20220816/2718006/2718006_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NC1DN51J 화이트라벨 고 프리 다운 코트",
+            "img_url": "//image.msscdn.net/images/goods_img/20220811/2712600/2712600_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ3NN52L 화이트라벨 리버턴 온볼 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20221019/2875834/2875834_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ3NN71C 아스펜 온볼 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20220825/2741893/2741893_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ1DN66A 폴라 에어 다운 자켓",
+            "img_url": "//image.msscdn.net/images/goods_img/20220816/2718013/2718013_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NC1DN00A 고 프리 다운 코트",
+            "img_url": "//image.msscdn.net/images/goods_img/20211224/2282452/2282452_1_220.jpg"
+        },
+        {
+            "brand_name": "노스페이스",
+            "name": "NJ1DN51J 화이트라벨 노벨티 눕시 다운 자켓 프린트",
+            "img_url": "//image.msscdn.net/images/goods_img/20221013/2859103/2859103_1_220.jpg"
+        }
+    ]
+}
+```
+2. 실패: globalResponseSet 참조
+
 ### Creserve
 #### 옷 데이터 추가
 ```httpspec
@@ -456,34 +532,6 @@ POST /cr/nearReserve
 }
 ```
 2. 실패 : globalResponseSet 참조
-
-#### 무신사 상품 검색
-```httpspec
-POST /cr/searchMusinsa
-```
-- request
-```javascript
-{
-    access_token: "jwt return from signin api",
-    keyword:갤럭시 버즈,
-}
-```
-1. 성공
-```javascript
-{
-    "code": 1,
-    "message": "api call success",
-    "isSuccess": true,
-    "data": {
-        "name": "갤럭시 버즈2 블루투스이어폰 SM-R177",
-        "brand_name": "삼성전자",
-        "src": "https://image.msscdn.net/images/goods_img/20210810/2055271/2055271_9_220.jpg"
-    }
-}
-```
-2. 실패 : globalResponseSet 참조
-
-
 
 ## Commit Rules
 [https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)

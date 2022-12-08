@@ -16,6 +16,7 @@ const {globalResponseSet, resbuilder} = require('./src/common/resbuilder');
 const test = require('./src/routes/Test/testRouter');
 const auth = require('./src/routes/Auth/authRouter');
 const sreserve = require('./src/routes/Sreserve/srRouter');
+const op = require('./src/routes/Op/funcRouter');
 const creserve = require('./src/routes/Creserve/crController');
 
 
@@ -36,6 +37,7 @@ initialize();
 app.use('/test',test);
 app.use('/auth',auth);
 app.use('/sr',sreserve);
+app.use('/op',op)
 app.use('/cr',creserve);
 
 
