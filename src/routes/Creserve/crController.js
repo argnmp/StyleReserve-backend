@@ -7,7 +7,7 @@ const authenticate = require('../../middleware/authenticate');
 const {wrapAsync} = require('../../common/errorhandler');
 const router = express.Router() 
 
-router.post('/searchMusinsa',wrapAsync(authenticate), wrapAsync(crSearch.searchMusinsa)); //무신사 서치 라우터
+//router.post('/searchMusinsa',wrapAsync(authenticate), wrapAsync(crSearch.searchMusinsa)); //무신사 서치 라우터
 
 router.post('/clothes',wrapAsync(authenticate),async (req, res, next) => {  //모든 옷 정보주기
   try {
