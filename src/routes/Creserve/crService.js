@@ -46,7 +46,12 @@ exports.nearReserve = async (User_id) => {  //해당 유저의 가장 최근 옷
             },
             order: [
                 ['reservation_date','asc']
-            ]
+            ],
+            include:[{
+                model: db.Clothes,
+                //as: 'Clothes',
+                attributes: ['name','brand_name','type','url_type','url'],
+            }]
 
         }); 
         console.log(data);
