@@ -7,7 +7,7 @@ const logger = require('../../../config/logger');
 exports.successTest = async (req, res, next) => {
     const result = await db.Users.findOne({
         where : {
-            email: 'kimtahen@hanyang.ac.kr',
+            email: 'kimtahen@gmail.com',
         }
     });
     logger.info("successTest"); 

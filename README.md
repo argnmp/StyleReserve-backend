@@ -1,5 +1,5 @@
 ## StyleReserve-backend
-This is a backend api server for StyleReserve application
+2022-2학기 소프트웨어 공학 프로젝트 backend (express.js)
 
 ## Response code
 For all api requests, the backend server responds with one of these codes

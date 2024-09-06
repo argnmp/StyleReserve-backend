@@ -46,7 +46,7 @@ module.exports = {
       styler_id: 1,
     },{
       provider: 'kakao',
-      email: 'kimtahen@hanyang.ac.kr',
+      email: 'kimtahen@gmail.com',
       password: "MI57nUwizPrcAVEWCkK3vNeAmKpbfx0NDkcKhC2GKmUGBeXUr53cKsXLkjPhedjD2jgsc2HmX/1f0gFpJAaOLw==",
       //password: twentyonepilots
       salt: "41mA6jDJfeXyDRCYptkpsvYpeCq+MpMOtBs5Dx+fscxbNsbjVsHLcEz3hXzxmy0BmRpP8oS7Z1puk6KgrNI80g==",
